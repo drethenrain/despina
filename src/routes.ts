@@ -1,4 +1,4 @@
-import './discordStrategy';
+import './utils/discordStrategy';
 
 import passport from 'passport';
 import { Router } from 'express';

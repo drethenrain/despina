@@ -1,7 +1,7 @@
 import passport from 'passport';
-import { Strategy as DiscordStrategy } from 'passport-discord';
+import { Strategy as DiscordStrategy, Profile } from 'passport-discord';
 
-import User from './models/User';
+import User from '../models/User';
 import { CLIENT_ID, CLIENT_SECRET, CLIENT_REDIRECT } from './constants';
 
 passport.serializeUser((user: any, done) => {
@@ -21,7 +21,7 @@ passport.use(
       callbackURL: CLIENT_REDIRECT,
       scope: 'identify',
     },
-    async (accessToken, refreshToken, profile, done) => {
+    async (accessToken, refreshToken, profile: Profile, done) => {
       try {
         const user = await User.findOne({ _id: profile.id });
         if (user) {
