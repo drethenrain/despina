@@ -1,7 +1,7 @@
 import { networkInterfaces } from 'os';
 
 import { PORT } from './utils/constants';
-import { app } from './app';
+import app from './app';
 import { connect } from './utils/database';
 
 const network = networkInterfaces();

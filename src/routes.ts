@@ -3,7 +3,7 @@ import './utils/discordStrategy';
 import passport from 'passport';
 import { Router } from 'express';
 
-export const router = Router();
+const router = Router();
 
 router.get('/', passport.authenticate('discord'));
 
@@ -14,3 +14,5 @@ router.get(
     successRedirect: '/',
   })
 );
+
+export default router;

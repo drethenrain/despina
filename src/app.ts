@@ -1,9 +1,9 @@
 import express from 'express';
 import session from 'express-session';
 import passport from 'passport';
-import { router } from './routes';
+import router from './routes';
 
-export const app = express();
+const app = express();
 
 app.use(
   session({
@@ -18,3 +18,5 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use('/auth', router);
+
+export default app;
