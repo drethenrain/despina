@@ -19,7 +19,7 @@ passport.use(
       clientID: CLIENT_ID,
       clientSecret: CLIENT_SECRET,
       callbackURL: CLIENT_REDIRECT,
-      scope: 'identify',
+      scope: ['identify', 'email'],
     },
     async (accessToken, refreshToken, profile: Profile, done) => {
       try {

@@ -5,10 +5,10 @@ import { Router } from 'express';
 
 const router = Router();
 
-router.get('/', passport.authenticate('discord'));
+router.get('/discord', passport.authenticate('discord'));
 
 router.get(
-  '/callback',
+  '/discord/callback',
   passport.authenticate('discord', {
     failureRedirect: '/auth',
     successRedirect: '/',

@@ -5,12 +5,7 @@ import { MONGO_URI } from './constants';
 export const connect = () => {
   mongoose.Promise = global.Promise;
 
-  mongoose.connect(MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-  });
+  mongoose.connect(MONGO_URI);
 
   mongoose.connection
     .on('connected', () => console.log('[DATABASE] MongoDB Connected'))
