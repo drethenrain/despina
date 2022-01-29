@@ -1,11 +1,9 @@
 import mongoose from 'mongoose';
 
-import { MONGO_URI } from './constants';
-
 export const connect = () => {
   mongoose.Promise = global.Promise;
 
-  mongoose.connect(MONGO_URI);
+  mongoose.connect(process.env.MONGO_URI as string);
 
   mongoose.connection
     .on('connected', () => console.log('[DATABASE] MongoDB Connected'))

@@ -2,7 +2,6 @@ import passport from 'passport';
 import { Strategy as DiscordStrategy, Profile } from 'passport-discord';
 
 import User from '../models/User';
-import { CLIENT_ID, CLIENT_SECRET, CLIENT_REDIRECT } from './constants';
 
 passport.serializeUser((user: any, done) => {
   done(null, user._id);
@@ -16,9 +15,9 @@ passport.deserializeUser(async (id, done) => {
 passport.use(
   new DiscordStrategy(
     {
-      clientID: CLIENT_ID,
-      clientSecret: CLIENT_SECRET,
-      callbackURL: CLIENT_REDIRECT,
+      clientID: process.env.CLIENT_ID as string,
+      clientSecret: process.env.CLIENT_SECRET as string,
+      callbackURL: process.env.CLIENT_REDIRECT as string,
       scope: ['identify', 'email'],
     },
     async (accessToken, refreshToken, profile: Profile, done) => {

@@ -1,9 +1,11 @@
+import 'dotenv/config';
+
 import { networkInterfaces } from 'os';
 
-import { PORT } from './utils/constants';
 import app from './app';
 import { connect } from './utils/database';
 
+const PORT = process.env.PORT || 3000;
 const network = networkInterfaces();
 const ip = network.wlp1s0
   ? network.wlp1s0[0].address
